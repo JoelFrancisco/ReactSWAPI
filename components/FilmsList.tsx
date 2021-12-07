@@ -24,6 +24,7 @@ const FilmsList: FC<Props> = ({
       {
         filmsToDisplay && filmsToDisplay.map((film: Film) => (
         <div 
+          key={film.title} 
           className="hover:bg-gray-800 min-w-full flex justify-center items-center rounded-xl" 
           onClick={() => {
             setFilm(film);
@@ -31,7 +32,6 @@ const FilmsList: FC<Props> = ({
           }}
         >
           <div 
-            key={film.title} 
             className="font-medium flex justify-around min-w-full"
           >
             <div className="w-52">{film.title}</div>

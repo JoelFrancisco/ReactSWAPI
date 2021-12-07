@@ -24,6 +24,7 @@ const CharactersList: FC<Props> = ({
       {
         charactersToDisplay && charactersToDisplay.map((character: Character) => (
         <div 
+          key={character.name} 
           className="hover:bg-gray-800 min-w-full flex justify-center items-center rounded-xl" 
           onClick={() => {
             setCharacter(character);
@@ -31,7 +32,6 @@ const CharactersList: FC<Props> = ({
           }}
         >
           <div 
-            key={character.name} 
             className="font-medium flex justify-around min-w-full"
           >
             <div className="w-52">{character.name}</div>

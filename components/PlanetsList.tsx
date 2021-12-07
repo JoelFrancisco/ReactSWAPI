@@ -25,6 +25,7 @@ const PlanetsList: FC<Props> = ({
       {
         planetsToDisplay && planetsToDisplay.map((result: Planet) => (
         <div 
+          key={result.name} 
           className="hover:bg-gray-800 min-w-full flex justify-center items-center rounded-xl" 
           onClick={() => {
             setPlanet(result);
@@ -32,7 +33,6 @@ const PlanetsList: FC<Props> = ({
           }}
         >
           <div 
-            key={result.name} 
             className="font-medium flex justify-around min-w-full"
           >
             <div className="w-20">{result.name}</div>
