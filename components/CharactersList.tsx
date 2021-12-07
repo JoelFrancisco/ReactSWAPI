@@ -17,10 +17,6 @@ const CharactersList: FC<Props> = ({
 }) => {
   return (
     <div className="flex flex-col w-full justify-between">
-      <div className="flex w-full justify-around font-bold text-xl border-2 border-white border-solid mb-4">
-        <h1>Nome</h1>
-        <h1>Gênero</h1>
-      </div>
       {
         charactersToDisplay && charactersToDisplay.map((character: Character) => (
         <div 
@@ -32,10 +28,18 @@ const CharactersList: FC<Props> = ({
           }}
         >
           <div 
-            className="font-medium flex justify-around min-w-full"
+            className="font-medium flex justify-around min-w-full 
+            flex-col border-2 border-gray-800 p-2 rounded-xl 
+            bg-gray-200 text-gray-800"
           >
-            <div className="w-52">{character.name}</div>
-            <div className="w-24">{character.gender}</div>
+            <div className="flex justify-center">
+              <div className="font-bold">Nome:</div>
+              <div className="ml-2">{character.name}</div>
+            </div>
+            <div className="flex justify-center">
+              <div className="font-bold">Gênero:</div>
+              <div className="ml-2">{character.gender}</div>
+            </div>
           </div> 
         </div>
         ))

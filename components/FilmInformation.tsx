@@ -73,7 +73,7 @@ const FilmInformation: FC<Props> = ({
           </h3>
         </div>
 
-        <div className="flex flex-row w-full justify-around mt-5">
+        <div className="flex flex-col w-full justify-around mt-5">
           <h3 className="flex flex-col items-center font-semibold bg-gray-200 border-gray-800 border-2 rounded-lg p-2 text-gray-800 min-w-1/4">
             Personagens <div className="ml-2 font-normal">{
               characters.length > 0 ? characters.map(character => (

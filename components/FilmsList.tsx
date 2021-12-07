@@ -17,10 +17,6 @@ const FilmsList: FC<Props> = ({
 }) => {
   return (
     <div className="flex flex-col w-full justify-between">
-      <div className="flex w-full justify-around font-bold text-xl border-2 border-white border-solid mb-4">
-        <h1>Título</h1>
-        <h1>Ano de lançamento</h1>
-      </div>
       {
         filmsToDisplay && filmsToDisplay.map((film: Film) => (
         <div 
@@ -32,10 +28,18 @@ const FilmsList: FC<Props> = ({
           }}
         >
           <div 
-            className="font-medium flex justify-around min-w-full"
+            className="font-medium flex justify-around min-w-full 
+            flex-col border-2 border-gray-800 p-2 rounded-xl 
+            bg-gray-200 text-gray-800"
           >
-            <div className="w-52">{film.title}</div>
-            <div className="w-52">{film.release_date}</div>
+            <div className="flex justify-center">
+              <div className="font-bold">Título:</div>  
+              <div className="ml-2">{film.title}</div>
+            </div>
+            <div className="flex justify-center">
+              <div className="font-bold">Clima:</div>
+              <div className="ml-2">{film.release_date}</div>
+            </div>
           </div> 
         </div>
         ))

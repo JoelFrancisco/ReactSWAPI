@@ -36,7 +36,7 @@ const CharacterInformation: FC<Props> = ({
 
   return (
     <>
-      <div className="flex justify-around min-w-full">
+      <div className="flex justify-around min-w-full flex-col">
         <div>
           <h3 className="flex font-semibold">
             Nome: <div className="ml-2 font-normal">{character.name}</div> 
