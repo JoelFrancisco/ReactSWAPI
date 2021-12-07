@@ -77,7 +77,7 @@ const Home: NextPage<Props> = ({ planets, films, characters }) => {
       />
       
       {
-        !showPlanetInformation &&
+        !showPlanetInformation && !showCharacterInformation && !showFilmInformation &&
         <select 
           value={whichResultsToShow} 
           onChange={event => setWhichResultsToShow(event.target.value)}
