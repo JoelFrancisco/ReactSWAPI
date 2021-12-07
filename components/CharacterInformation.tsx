@@ -55,12 +55,13 @@ const CharacterInformation: FC<Props> = ({
           Filmes <div className="ml-2 font-normal">{
             films.length > 0 ? films.map(film => (
               <div 
+                key={film.title}
                 className="hover:bg-gray-800 hover:text-white rounded-full cursor-pointer min-w-full"
                 onClick={() => {
-                setFilm(film);
-                setWhichResultsToShow('films');
-                setShowFilmInformation(true);
-                setShowCharacterInformation(false); 
+                  setFilm(film);
+                  setWhichResultsToShow('films');
+                  setShowFilmInformation(true);
+                  setShowCharacterInformation(false); 
               }}>{film.title}</div>
             ))
             :

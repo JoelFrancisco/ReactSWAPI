@@ -84,12 +84,13 @@ const PlanetInformation: FC<Props> = ({
           Filmes <div className="ml-2 font-normal">{
             films.length > 0 ? films.map(film => (
               <div 
+                key={film.title}
                 className="hover:bg-gray-800 hover:text-white rounded-full cursor-pointer min-w-full"
                 onClick={() => {
-                setFilm(film);
-                setWhichResultsToShow('films');
-                setShowFilmInformation(true);
-                setShowPlanetInformation(false); 
+                  setFilm(film);
+                  setWhichResultsToShow('films');
+                  setShowFilmInformation(true);
+                  setShowPlanetInformation(false); 
               }}>{film.title}</div>
             ))
             :
@@ -101,12 +102,13 @@ const PlanetInformation: FC<Props> = ({
           Residentes <div className="ml-2 font-normal">{
             residents.length > 0 ? residents.map(resident => (
               <div 
+                key={resident.name}
                 className="hover:bg-gray-800 hover:text-white rounded-full cursor-pointer min-w-full"
                 onClick={() => {
-                setCharacter(resident);
-                setWhichResultsToShow('characters');
-                setShowCharacterInformation(true);
-                setShowPlanetInformation(false);
+                  setCharacter(resident);
+                  setWhichResultsToShow('characters');
+                  setShowCharacterInformation(true);
+                  setShowPlanetInformation(false);
               }}>{resident.name}</div>
             ))
             :

@@ -78,6 +78,7 @@ const FilmInformation: FC<Props> = ({
             Personagens <div className="ml-2 font-normal">{
               characters.length > 0 ? characters.map(character => (
                 <div 
+                  key={character.name}
                   className="hover:bg-gray-800 hover:text-white rounded-full cursor-pointer min-w-full"
                   onClick={() => {
                     setCharacter(character);
@@ -95,6 +96,7 @@ const FilmInformation: FC<Props> = ({
             Planetas <div className="ml-2 font-normal">{
               planets.length > 0 ? planets.map(planet => (
                 <div 
+                  key={planet.name}
                   className="hover:bg-gray-800 hover:text-white rounded-full cursor-pointer min-w-full"
                   onClick={() => {
                     setPlanet(planet);
