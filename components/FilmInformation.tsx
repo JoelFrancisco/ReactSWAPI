@@ -56,30 +56,33 @@ const FilmInformation: FC<Props> = ({
     <>
       <div className="flex justify-around min-w-full flex-col">
         <div>
-          <h3 className="flex font-semibold">
-            Título: <div className="ml-2 font-normal">{film.title}</div> 
-          </h3>
+          <div className="md:w-full md:flex md:justify-around">
+            <h3 className="flex font-semibold md:mr-10">
+              Título: <div className="ml-2 font-normal">{film.title}</div> 
+            </h3>
 
-          <h3 className="flex font-semibold">
-            Episódio: <div className="ml-2 font-normal">{film.episode_id}</div> 
-          </h3>
+            <h3 className="flex font-semibold">
+              Episódio: <div className="ml-2 font-normal">{film.episode_id}</div> 
+            </h3>
 
-          <h3 className="flex font-semibold">
-            Ano de lançamento: <div className="ml-2 font-normal">{film.release_date}</div> 
-          </h3>
+            <h3 className="flex font-semibold">
+              Ano de lançamento: <div className="ml-2 font-normal">{film.release_date}</div> 
+            </h3>
+          </div>
 
-          <h3 className="flex font-semibold">
+          <h3 className="flex font-semibold flex-col items-center mt-5">
             Texto de abertura: <div className="ml-2 font-normal">{film.opening_crawl}</div> 
           </h3>
         </div>
 
-        <div className="flex flex-col w-full justify-around mt-5">
-          <h3 className="flex flex-col items-center font-semibold bg-gray-200 border-gray-800 border-2 rounded-lg p-2 text-gray-800 min-w-1/4">
-            Personagens <div className="ml-2 font-normal">{
+        <div className="md:flex md:min-w-full md:justify-around mt-5">
+          <h3 className="flex flex-col items-center font-semibold bg-gray-900 border-gray-50 
+            border-4 border-double rounded-lg p-2 text-gray-50 max-w-md md:w-1/2">
+            Personagens <div className="ml-2 font-normal w-full flex flex-col justify-center items-center">{
               characters.length > 0 ? characters.map(character => (
                 <div 
                   key={character.name}
-                  className="hover:bg-gray-800 hover:text-white rounded-full cursor-pointer min-w-full"
+                  className="hover:bg-gray-700 hover:text-white rounded-full cursor-pointer min-w-full flex justify-center"
                   onClick={() => {
                     setCharacter(character);
                     setWhichResultsToShow('characters');
@@ -92,12 +95,12 @@ const FilmInformation: FC<Props> = ({
             }</div> 
           </h3>
 
-          <h3 className="flex flex-col items-center font-semibold bg-gray-200 border-gray-800 border-2 rounded-lg p-2 text-gray-800 min-w-1/4">
-            Planetas <div className="ml-2 font-normal">{
+          <h3 className="flex flex-col items-center font-semibold bg-gray-900 border-gray-50 border-4 border-double rounded-lg p-2 text-gray-50 max-w-md md:w-1/2">
+            Planetas <div className="ml-2 font-normal w-full flex flex-col justify-center items-center">{
               planets.length > 0 ? planets.map(planet => (
                 <div 
                   key={planet.name}
-                  className="hover:bg-gray-800 hover:text-white rounded-full cursor-pointer min-w-full"
+                  className="hover:bg-gray-700 hover:text-white rounded-full cursor-pointer w-full flex justify-center"
                   onClick={() => {
                     setPlanet(planet);
                     setWhichResultsToShow('planets');
@@ -113,7 +116,7 @@ const FilmInformation: FC<Props> = ({
       </div>
 
       <button 
-        className="font-bold mt-5 hover:bg-gray-800 p-2 rounded-lg transition duration-500 ease-in-out" 
+        className="font-bold mt-5 hover:bg-white hover:text-gray-800 p-2 rounded-lg transition duration-500 ease-in-out" 
         onClick={() => setShowFilmInformation(false)}
       >
         Voltar

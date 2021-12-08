@@ -36,7 +36,7 @@ const Searchbox: FC<Props> = ({
       case 'characters':
         const newCharactersToDisplay = characters.filter(character => { 
           return character.name.toLowerCase().includes(text.toLowerCase()) 
-            || character.gender.toLowerCase() === text.toLowerCase();
+            || character.gender.toLowerCase().startsWith(text.toLowerCase());
         });
         setCharactersToDisplay([ ...newCharactersToDisplay ]);
       case 'films':
@@ -53,7 +53,8 @@ const Searchbox: FC<Props> = ({
       type="text" 
       placeholder="Pesquisar" 
       onChange={event => setText(event.target.value)} 
-      className="outline-none w-96 p-2 border-solid border-2 border-gray-200 rounded-full mt-10 mb-10"
+      className="outline-none w-3/4 p-2 rounded-full 
+        mt-10 mb-10 bg-black opacity-70 text-white md:w-1/2"
     />
   )
 }

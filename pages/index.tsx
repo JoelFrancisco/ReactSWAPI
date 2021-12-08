@@ -1,4 +1,4 @@
-import type { NextPage, GetServerSideProps } from 'next'
+import type { NextPage, GetStaticProps } from 'next'
 import { useState } from 'react';
 
 import { Planet } from '../entities/Planet';
@@ -19,8 +19,7 @@ import CharactersList from '../components/CharactersList';
 
 import Searchbox from '../components/Searchbox';
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  try {
+export const getStaticProps: GetStaticProps = async () => {
     const planets = await getAllPlanetsResults();
     const films = await getAllFilmsResults();
     const characters = await getAllCharactersResults();
@@ -30,15 +29,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
         planets,
         films,
         characters
-      }
+      },
+      revalidate: 5
     }
-  } catch(err) {
-    return {
-      props: {
-        
-      }
-    }
-  }
 }
 
 type Props = {
@@ -65,7 +58,8 @@ const Home: NextPage<Props> = ({ planets, films, characters }) => {
   const [charactersToDisplay, setCharactersToDisplay] = useState(characters);
 
   return (
-    <div className="h-screen min-w-full flex justify-around items-center flex-col">
+    <div className="bg-star-wars bg-no-repeat h-screen w-full flex justify-around items-center flex-col">
+
       <Searchbox 
         planets={planets} 
         setPlanetsToDisplay={setPlanetsToDisplay} 
@@ -81,7 +75,7 @@ const Home: NextPage<Props> = ({ planets, films, characters }) => {
         <select 
           value={whichResultsToShow} 
           onChange={event => setWhichResultsToShow(event.target.value)}
-          className="bg-white outline-none border-gray-200 border-b-2 border-solid mt-5"
+          className="bg-black outline-none mt-5 text-gray-200 font-medium w-3/4 md:w-1/2 rounded-full opacity-70 p-2"
         >
           <option value="planets">Planetas</option>
           <option value="films">Filmes</option>
@@ -90,8 +84,8 @@ const Home: NextPage<Props> = ({ planets, films, characters }) => {
       }
 
       <div 
-        className="container bg-gray-600 rounded-xl text-white p-10 flex justify-start items-center 
-          flex-col mt-20 mb-20 overflow-y-scroll h-3/4 border-2 border-gray-800"
+        className="container bg-gray-800 rounded-xl text-white p-10 flex justify-start items-center 
+          flex-col mt-20 mb-20 overflow-y-scroll h-3/4 opacity-90 border-black border-double"
       >
           { 
             whichResultsToShow === 'planets' ?
