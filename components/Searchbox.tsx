@@ -3,7 +3,7 @@ import { Planet } from '../entities/Planet';
 import { Film } from '../entities/Film';
 import { Character } from '../entities/Character';
 
-import { getFormattedDate } from '../utils/getFormattedDate';
+import { getReleaseYear } from '../utils/getReleaseYear';
 
 type Props = {
   planets: Planet[];
@@ -31,7 +31,7 @@ const Searchbox: FC<Props> = ({
       case 'planets':
         const newPlanetsToDisplay = planets.filter(planet => { 
           return planet.name.toLowerCase().includes(text.toLowerCase()) 
-            || planet.population.toString().includes(text) 
+            || planet.population.toString().startsWith(text) 
             || planet.climate.toLowerCase().includes(text.toLowerCase());
         });
         setPlanetsToDisplay([ ...newPlanetsToDisplay ]);
@@ -44,8 +44,7 @@ const Searchbox: FC<Props> = ({
       case 'films':
         const newFilmsToDisplay = films.filter(film => { 
           return film.title.toLowerCase().includes(text.toLowerCase()) 
-            || film.release_date.includes(text)
-            || getFormattedDate(film.release_date).includes(text);
+            || getReleaseYear(film.release_date).includes(text);
         });
         setFilmsToDisplay([ ...newFilmsToDisplay ]);
     }

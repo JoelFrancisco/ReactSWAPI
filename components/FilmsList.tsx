@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { Film } from '../entities/Film';
-import { getFormattedDate } from '../utils/getFormattedDate';
+import { getReleaseYear } from '../utils/getReleaseYear';
 
 type Props = {
   filmsToDisplay: Film[];
@@ -39,8 +39,8 @@ const FilmsList: FC<Props> = ({
                 <div className="ml-2">{film.title}</div>
               </div>
               <div className="flex justify-center md:w-1/2 md:justify-start">
-                <div className="font-bold">Data de lançamento:</div>
-                <div className="ml-2">{getFormattedDate(film.release_date)}</div>
+                <div className="font-bold">Ano de lançamento:</div>
+                <div className="ml-2">{getReleaseYear(film.release_date)}</div>
               </div>
             </div>
           </div>
