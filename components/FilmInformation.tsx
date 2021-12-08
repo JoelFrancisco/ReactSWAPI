@@ -35,7 +35,7 @@ const FilmInformation: FC<Props> = ({
   
   const getPlanetsInfo = async () => {
     const planets: Planet[] = film.planets.map((planetUrl: string) => {
-      const planetIndex = planetUrl.split('/').pop();
+      const planetIndex = planetUrl.split('/')[5];
       const planet = planetsProp[Number(planetIndex) - 1];
       return planet;
     });
@@ -45,7 +45,7 @@ const FilmInformation: FC<Props> = ({
 
   const getCharactersInfo = async () => {
     const characters: Character[] = film.characters.map((characterUrl: string) => {
-      const characterIndex = characterUrl.split('/').pop();
+      const characterIndex = characterUrl.split('/')[5];
       const character = charactersProp[Number(characterIndex) - 1];
       return character;
     });

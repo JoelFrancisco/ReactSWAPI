@@ -33,7 +33,7 @@ const PlanetInformation: FC<Props> = ({
   
   const getFilmsInfo = async () => {
     const films: Film[] = planet.films.map((filmUrl: string) => {
-      const filmIndex = filmUrl.split('/').pop();
+      const filmIndex = filmUrl.split('/')[5];
       const film = filmsProp[Number(filmIndex) - 1];
       return film;
     });
@@ -43,7 +43,7 @@ const PlanetInformation: FC<Props> = ({
 
   const getResidentsInfo = async () => {
     const residents: Character[] = planet.residents.map((residentUrl: string) => {
-      const residentIndex = residentUrl.split('/').pop();
+      const residentIndex = residentUrl.split('/')[5];
       const resident = characters[Number(residentIndex) - 1];
       return resident;
     });
