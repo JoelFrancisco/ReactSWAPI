@@ -54,7 +54,7 @@ const Searchbox: FC<Props> = ({
       placeholder="Pesquisar" 
       onChange={event => setText(event.target.value)} 
       className="outline-none w-3/4 p-2 rounded-full 
-        mt-10 mb-10 bg-black opacity-70 text-white md:w-1/2"
+        mt-10 mb-10 bg-black opacity-70 text-gray-200 md:w-1/2"
     />
   )
 }

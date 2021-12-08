@@ -1,8 +1,9 @@
-import type { NextComponentType } from 'next';
 import { useEffect, useState, FC } from 'react';
 
 import { Character } from '../entities/Character';
 import { Film } from '../entities/Film';
+
+import { FiHome } from 'react-icons/fi';
 
 type Props = {
   character: Character;
@@ -77,7 +78,7 @@ const CharacterInformation: FC<Props> = ({
         className="font-bold mt-5 hover:bg-white hover:text-gray-800 p-2 rounded-lg transition duration-500 ease-in-out" 
         onClick={() => setShowCharacterInformation(false)}
       >
-        Voltar
+        <FiHome className="w-6 h-6" />
       </button>
     </>
   )

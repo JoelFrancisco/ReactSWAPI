@@ -85,7 +85,7 @@ const Home: NextPage<Props> = ({ planets, films, characters }) => {
 
       <div 
         className="container bg-gray-800 rounded-xl text-white p-10 flex justify-start items-center 
-          flex-col mt-20 mb-20 overflow-y-scroll h-3/4 opacity-90 border-black border-double w-11/12"
+          flex-col mt-20 mb-20 overflow-y-scroll h-3/4 opacity-90 w-11/12"
       >
           { 
             whichResultsToShow === 'planets' ?

@@ -4,6 +4,8 @@ import { Film } from '../entities/Film';
 import { Planet } from '../entities/Planet';
 import { Character } from '../entities/Character';
 
+import { FiHome } from 'react-icons/fi';
+
 type Props = {
   film: Film;
   setShowFilmInformation: (value: boolean) => void;
@@ -77,7 +79,7 @@ const FilmInformation: FC<Props> = ({
 
         <div className="md:flex md:min-w-full md:justify-around mt-5">
           <h3 className="flex flex-col items-center font-semibold bg-gray-900 border-gray-50 
-            border-4 border-double rounded-lg p-2 text-gray-50 max-w-md md:w-1/2">
+            border-4 border-double rounded-lg p-2 text-gray-50 max-w-md md:w-1/2 mt-5">
             Personagens <div className="ml-2 font-normal w-full flex flex-col justify-center items-center">{
               characters.length > 0 ? characters.map(character => (
                 <div 
@@ -95,7 +97,8 @@ const FilmInformation: FC<Props> = ({
             }</div> 
           </h3>
 
-          <h3 className="flex flex-col items-center font-semibold bg-gray-900 border-gray-50 border-4 border-double rounded-lg p-2 text-gray-50 max-w-md md:w-1/2">
+          <h3 className="flex flex-col items-center font-semibold bg-gray-900 border-gray-50 border-4 
+            border-double rounded-lg p-2 text-gray-50 max-w-md md:w-1/2 mt-5">
             Planetas <div className="ml-2 font-normal w-full flex flex-col justify-center items-center">{
               planets.length > 0 ? planets.map(planet => (
                 <div 
@@ -119,7 +122,7 @@ const FilmInformation: FC<Props> = ({
         className="font-bold mt-5 hover:bg-white hover:text-gray-800 p-2 rounded-lg transition duration-500 ease-in-out" 
         onClick={() => setShowFilmInformation(false)}
       >
-        Voltar
+        <FiHome className="w-6 h-6" />
       </button>
     </>
   )
