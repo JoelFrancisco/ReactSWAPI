@@ -30,7 +30,7 @@ export const getStaticProps: GetStaticProps = async () => {
         films,
         characters
       },
-      revalidate: 5
+      revalidate: 30
     }
 }
 
