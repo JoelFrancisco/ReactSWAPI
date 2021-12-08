@@ -11,6 +11,7 @@ type Props = {
   setFilm: (value: Film) => void;
   setShowFilmInformation: (value: boolean) => void;
   setWhichResultsToShow: (value: string) => void;
+  films: Film[];
 }
 
 const CharacterInformation: FC<Props> = ({ 
@@ -18,15 +19,17 @@ const CharacterInformation: FC<Props> = ({
   setShowCharacterInformation,
   setFilm, 
   setShowFilmInformation,
-  setWhichResultsToShow
+  setWhichResultsToShow,
+  films: filmsProp
 }) => {
   const [films, setFilms] = useState<Film[]>([]);
   
-  const getFilmsInfo = async () => {
-    const films: Film[] = await Promise.all(character.films.map(async (film: string) => {
-      const filmInfo = await fetch(film).then((res) => res.json());
-      return filmInfo;
-    }));
+  const getFilmsInfo = () => {
+    const films: Film[] = character.films.map((filmUrl: string) => {
+      const filmIndex = filmUrl.split('/').pop();
+      const film = filmsProp[Number(filmIndex) - 1];
+      return film;
+    });
     
     setFilms(films);
   }
@@ -65,7 +68,7 @@ const CharacterInformation: FC<Props> = ({
                     setWhichResultsToShow('films');
                     setShowFilmInformation(true);
                     setShowCharacterInformation(false); 
-                }}>{film.title}</div>
+                }}>{film ? film.title : "Carregando..."}</div>
               ))
               :
               <div>Nenhum filme encontrado</div>

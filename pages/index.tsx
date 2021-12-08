@@ -101,6 +101,9 @@ const Home: NextPage<Props> = ({ planets, films, characters }) => {
                   setShowCharacterInformation={setShowCharacterInformation}
                   
                   setWhichResultsToShow={setWhichResultsToShow}
+                  
+                  films={films}
+                  characters={characters}
                 />
               : 
               <PlanetsList 
@@ -126,6 +129,9 @@ const Home: NextPage<Props> = ({ planets, films, characters }) => {
                   setShowCharacterInformation={setShowCharacterInformation}
 
                   setWhichResultsToShow={setWhichResultsToShow}
+                  
+                  planets={planets}
+                  characters={characters}
                 />
               : 
               <FilmsList 
@@ -148,6 +154,8 @@ const Home: NextPage<Props> = ({ planets, films, characters }) => {
                   setShowFilmInformation={setShowFilmInformation}
 
                   setWhichResultsToShow={setWhichResultsToShow}
+                  
+                  films={films}
                 />
               : 
               <CharactersList

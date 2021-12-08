@@ -15,6 +15,8 @@ type Props = {
   setCharacter: (value: Character) => void;
   setShowCharacterInformation: (value: boolean) => void;
   setWhichResultsToShow: (value: string) => void;
+  planets: Planet[];
+  characters: Character[];
 }
 
 const FilmInformation: FC<Props> = ({ 
@@ -24,25 +26,29 @@ const FilmInformation: FC<Props> = ({
   setShowPlanetInformation,
   setCharacter,
   setShowCharacterInformation,
-  setWhichResultsToShow
+  setWhichResultsToShow,
+  planets: planetsProp,
+  characters: charactersProp,
 }) => {
   const [planets, setPlanets] = useState<Planet[]>([]);
   const [characters, setCharacters] = useState<Character[]>([]);
   
-  const getPlanetsInfo = async () => {
-    const planets: Planet[] = await Promise.all(film.planets.map(async (planet: string) => {
-      const planetInfo = await fetch(planet).then((res) => res.json());
-      return planetInfo;
-    }));
+  const getPlanetsInfo = () => {
+    const planets: Planet[] = film.planets.map((planetUrl: string) => {
+      const planetIndex = planetUrl.split('/').pop();
+      const planet = planetsProp[Number(planetIndex) - 1];
+      return planet;
+    });
     
     setPlanets(planets);
   }
 
-  const getCharactersInfo = async () => {
-    const characters: Character[] = await Promise.all(film.characters.map(async (character: string) => {
-      const characterInfo = await fetch(character).then((res) => res.json());
-      return characterInfo;
-    }));
+  const getCharactersInfo = () => {
+    const characters: Character[] = film.characters.map((characterUrl: string) => {
+      const characterIndex = characterUrl.split('/').pop();
+      const character = charactersProp[Number(characterIndex) - 1];
+      return character;
+    });
     
     setCharacters(characters);
   }
@@ -91,7 +97,7 @@ const FilmInformation: FC<Props> = ({
                     setWhichResultsToShow('characters');
                     setShowCharacterInformation(true);
                     setShowFilmInformation(false); 
-                }}>{character.name}</div>
+                }}>{character ? character.name : "Carregando..."}</div>
               ))
               :
               <div>Nenhum personagem encontrado</div>
@@ -110,7 +116,7 @@ const FilmInformation: FC<Props> = ({
                     setWhichResultsToShow('planets');
                     setShowPlanetInformation(true);
                     setShowFilmInformation(false); 
-                }}>{planet.name}</div>
+                }}>{planet ? planet.name : "Carregando..."}</div>
               ))
               :
               <div>Não há planetas</div>
