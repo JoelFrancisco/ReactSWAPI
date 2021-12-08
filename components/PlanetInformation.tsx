@@ -31,7 +31,7 @@ const PlanetInformation: FC<Props> = ({
   const [films, setFilms] = useState<Film[]>([]);
   const [residents, setResidents] = useState<Character[]>([]);
   
-  const getFilmsInfo = async () => {
+  const getFilmsInfo = () => {
     const films: Film[] = planet.films.map((filmUrl: string) => {
       const filmIndex = filmUrl.split('/')[5];
       const film = filmsProp[Number(filmIndex) - 1];
@@ -41,7 +41,7 @@ const PlanetInformation: FC<Props> = ({
     setFilms(films);
   }
 
-  const getResidentsInfo = async () => {
+  const getResidentsInfo = () => {
     const residents: Character[] = planet.residents.map((residentUrl: string) => {
       const residentIndex = Number(residentUrl.split('/')[5]);
       const resident = characters[residentIndex < 17 ? residentIndex - 1 : residentIndex - 2];

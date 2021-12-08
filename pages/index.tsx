@@ -20,9 +20,9 @@ import CharactersList from '../components/CharactersList';
 import Searchbox from '../components/Searchbox';
 
 export const getStaticProps: GetStaticProps = async () => {
-    const { planets, error: errorPlanets, message: messagePlanets } = await getAllPlanetsResults();
-    const { films, error: errorFilms, message: messageFilms } = await getAllFilmsResults();
-    const { characters, error: errorCharacters, message: messageCharacters } = await getAllCharactersResults();
+    const { planets, error: errorPlanets  } = await getAllPlanetsResults();
+    const { films, error: errorFilms  } = await getAllFilmsResults();
+    const { characters, error: errorCharacters  } = await getAllCharactersResults();
   
     if (errorPlanets || errorFilms || errorCharacters) {
       return {
@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps = async () => {
         }
       }
     }
-
+    
     return {
       props: {
         error: false,

@@ -24,7 +24,7 @@ const CharacterInformation: FC<Props> = ({
 }) => {
   const [films, setFilms] = useState<Film[]>([]);
   
-  const getFilmsInfo = async () => {
+  const getFilmsInfo = () => {
     const films: Film[] = character.films.map((filmUrl: string) => {
       const filmIndex = filmUrl.split('/')[5];
       const film = filmsProp[Number(filmIndex) - 1];
