@@ -31,7 +31,7 @@ const PlanetsList: FC<Props> = ({
             className="font-medium flex justify-around min-w-full 
               flex-col border-2 border-gray-800 p-2 rounded-xl 
               bg-gray-800 text-gray-50 md:flex-row md:justify-evenly md:items-center hover:bg-gray-900 
-              hover:text-white transition-all duration-75 ease-in-out cursor-pointer"
+              hover:text-white transition-all duration-75 ease-in-out cursor-pointer md:text-lg"
           >
             <div className="flex justify-center md:w-1/3 md:justify-start md:ml-40">
               <div className="font-bold">Nome:</div>

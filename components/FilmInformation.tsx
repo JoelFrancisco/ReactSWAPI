@@ -58,7 +58,7 @@ const FilmInformation: FC<Props> = ({
   return (
     <>
       <div className="flex justify-around min-w-full flex-col">
-        <div>
+        <div className="md:text-lg">
           <div className="md:w-full md:flex md:justify-around">
             <h3 className="flex font-semibold md:mr-10">
               Título: <div className="ml-2 font-normal">{film.title}</div> 
