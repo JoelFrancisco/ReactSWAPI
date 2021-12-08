@@ -3,6 +3,7 @@ import { useEffect, useState, FC } from 'react';
 import { Film } from '../entities/Film';
 import { Planet } from '../entities/Planet';
 import { Character } from '../entities/Character';
+import { getFormattedDate } from '../utils/getFormattedDate';
 
 import { FiHome } from 'react-icons/fi';
 
@@ -68,7 +69,7 @@ const FilmInformation: FC<Props> = ({
             </h3>
 
             <h3 className="flex font-semibold">
-              Ano de lançamento: <div className="ml-2 font-normal">{film.release_date}</div> 
+              Data de lançamento: <div className="ml-2 font-normal">{getFormattedDate(film.release_date)}</div> 
             </h3>
           </div>
 
