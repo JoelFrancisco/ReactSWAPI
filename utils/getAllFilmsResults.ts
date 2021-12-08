@@ -1,4 +1,5 @@
 import { Film } from '../entities/Film';
+import { api, apiPages } from './api';
 
 type Data = {
   count: number;
@@ -7,23 +8,42 @@ type Data = {
   results: Film[];
 };
 
-const baseUrl = 'https://swapi.dev/api';
-const headers = new Headers({ 'User-Agent': '*' });
-const init = { method: 'GET', headers };
-
 const getAllFilmsResults = async () => {
-  let res = await fetch(`${baseUrl}/films`, init);
-  let data: Data = await res.json();
+  let res;
+
+  try {
+    res = await api.get('/films');
+  } catch (err: any) {
+    return {
+      error: true,
+      films: [],
+      message: err.message,
+    };
+  }
+
+  let data: Data = res.data;
   const filmsResults: Film[] = [...data.results];
 
   while (data.next) {
-    res = await fetch(data.next, init);
-    data = await res.json();
+    try {
+      res = await apiPages.get(data.next);
+    } catch (err: any) {
+      return {
+        error: true,
+        characters: [],
+        message: err.message,
+      };
+    }
+    data = res.data;
 
     filmsResults.push(...data.results);
   }
 
-  return filmsResults;
+  return {
+    films: filmsResults,
+    error: false,
+    message: 'Films found successfully',
+  };
 };
 
 export { getAllFilmsResults };

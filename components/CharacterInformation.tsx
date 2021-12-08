@@ -60,15 +60,19 @@ const CharacterInformation: FC<Props> = ({
               rounded-lg p-2 text-gray-50 max-w-md md:w-1/2 mt-5">
             Filmes <div className="ml-2 font-normal w-full flex flex-col justify-center items-center">{
               films.length > 0 ? films.map(film => (
-                <div 
-                  key={film.title}
-                  className="hover:bg-gray-700 hover:text-white rounded-full cursor-pointer w-full flex justify-center"
-                  onClick={() => {
-                    setFilm(film);
-                    setWhichResultsToShow('films');
-                    setShowFilmInformation(true);
-                    setShowCharacterInformation(false); 
-                }}>{film ? film.title : "Carregando..."}</div>
+                film && (
+                  <div 
+                    key={film.title}
+                    className="hover:bg-gray-700 hover:text-white rounded-full cursor-pointer w-full flex justify-center"
+                    onClick={() => {
+                      setFilm(film);
+                      setWhichResultsToShow('films');
+                      setShowFilmInformation(true);
+                      setShowCharacterInformation(false); 
+                  }}>
+                    {film.title}
+                  </div>
+                )
               ))
               :
               <div>Nenhum filme encontrado</div>

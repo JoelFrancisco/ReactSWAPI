@@ -43,8 +43,8 @@ const PlanetInformation: FC<Props> = ({
 
   const getResidentsInfo = async () => {
     const residents: Character[] = planet.residents.map((residentUrl: string) => {
-      const residentIndex = residentUrl.split('/')[5];
-      const resident = characters[Number(residentIndex) - 1];
+      const residentIndex = Number(residentUrl.split('/')[5]);
+      const resident = characters[residentIndex < 17 ? residentIndex - 1 : residentIndex - 2];
       return resident;
     });
     
@@ -98,15 +98,20 @@ const PlanetInformation: FC<Props> = ({
           >
             Filmes <div className="ml-2 font-normal w-full flex flex-col justify-center items-center">{
               films.length > 0 ? films.map(film => (
-                <div 
-                  key={film.title}
-                  className="hover:bg-gray-700 hover:text-white rounded-full cursor-pointer min-w-full flex justify-center"
-                  onClick={() => {
-                    setFilm(film);
-                    setWhichResultsToShow('films');
-                    setShowFilmInformation(true);
-                    setShowPlanetInformation(false); 
-                }}>{film ? film.title : "Carregando..."}</div>
+                film && (
+                  <div 
+                    key={film.title}
+                    className="hover:bg-gray-700 hover:text-white rounded-full cursor-pointer 
+                      min-w-full flex justify-center"
+                    onClick={() => {
+                      setFilm(film);
+                      setWhichResultsToShow('films');
+                      setShowFilmInformation(true);
+                      setShowPlanetInformation(false); 
+                    }}>
+                      {film.title}
+                  </div>
+                )
               ))
               :
               <div>Nenhum filme encontrado</div>
@@ -118,15 +123,19 @@ const PlanetInformation: FC<Props> = ({
           >
             Residentes <div className="ml-2 font-normal w-full flex flex-col justify-center items-center">{
               residents.length > 0 ? residents.map(resident => (
-                <div 
-                  key={resident.name}
-                  className="hover:bg-gray-700 hover:text-white rounded-full cursor-pointer w-full flex justify-center"
-                  onClick={() => {
-                    setCharacter(resident);
-                    setWhichResultsToShow('characters');
-                    setShowCharacterInformation(true);
-                    setShowPlanetInformation(false);
-                }}>{resident ? resident.name : "Carregando..."}</div>
+                resident && (
+                  <div 
+                    key={resident.name}
+                    className="hover:bg-gray-700 hover:text-white rounded-full cursor-pointer w-full flex justify-center"
+                    onClick={() => {
+                      setCharacter(resident);
+                      setWhichResultsToShow('characters');
+                      setShowCharacterInformation(true);
+                      setShowPlanetInformation(false);
+                  }}>
+                    {resident.name}
+                  </div>
+                )
               ))
               :
               <div>Não há residentes</div>

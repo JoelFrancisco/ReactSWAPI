@@ -89,15 +89,19 @@ const FilmInformation: FC<Props> = ({
             border-4 border-double rounded-lg p-2 text-gray-50 max-w-md md:w-1/2 mt-5">
             Personagens <div className="ml-2 font-normal w-full flex flex-col justify-center items-center">{
               characters.length > 0 ? characters.map(character => (
-                <div 
-                  key={character.name}
-                  className="hover:bg-gray-700 hover:text-white rounded-full cursor-pointer min-w-full flex justify-center"
-                  onClick={() => {
-                    setCharacter(character);
-                    setWhichResultsToShow('characters');
-                    setShowCharacterInformation(true);
-                    setShowFilmInformation(false); 
-                }}>{character ? character.name : "Carregando..."}</div>
+                character && (
+                  <div 
+                    key={character.name}
+                    className="hover:bg-gray-700 hover:text-white rounded-full cursor-pointer min-w-full flex justify-center"
+                    onClick={() => {
+                      setCharacter(character);
+                      setWhichResultsToShow('characters');
+                      setShowCharacterInformation(true);
+                      setShowFilmInformation(false); 
+                  }}>
+                    {character.name}
+                  </div>
+                )
               ))
               :
               <div>Nenhum personagem encontrado</div>
@@ -108,15 +112,19 @@ const FilmInformation: FC<Props> = ({
             border-double rounded-lg p-2 text-gray-50 max-w-md md:w-1/2 mt-5">
             Planetas <div className="ml-2 font-normal w-full flex flex-col justify-center items-center">{
               planets.length > 0 ? planets.map(planet => (
-                <div 
-                  key={planet.name}
-                  className="hover:bg-gray-700 hover:text-white rounded-full cursor-pointer w-full flex justify-center"
-                  onClick={() => {
-                    setPlanet(planet);
-                    setWhichResultsToShow('planets');
-                    setShowPlanetInformation(true);
-                    setShowFilmInformation(false); 
-                }}>{planet ? planet.name : "Carregando..."}</div>
+                planet && (
+                  <div 
+                    key={planet.name}
+                    className="hover:bg-gray-700 hover:text-white rounded-full cursor-pointer w-full flex justify-center"
+                    onClick={() => {
+                      setPlanet(planet);
+                      setWhichResultsToShow('planets');
+                      setShowPlanetInformation(true);
+                      setShowFilmInformation(false); 
+                  }}>
+                    {planet.name}
+                  </div>
+                )
               ))
               :
               <div>Não há planetas</div>

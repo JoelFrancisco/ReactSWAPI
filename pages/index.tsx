@@ -20,28 +20,40 @@ import CharactersList from '../components/CharactersList';
 import Searchbox from '../components/Searchbox';
 
 export const getStaticProps: GetStaticProps = async () => {
-    const planets = await getAllPlanetsResults();
-    const films = await getAllFilmsResults();
-    const characters = await getAllCharactersResults();
+    const { planets, error: errorPlanets, message: messagePlanets } = await getAllPlanetsResults();
+    const { films, error: errorFilms, message: messageFilms } = await getAllFilmsResults();
+    const { characters, error: errorCharacters, message: messageCharacters } = await getAllCharactersResults();
+  
+    if (errorPlanets || errorFilms || errorCharacters) {
+      return {
+        props: {
+          error: true,
+          planets: [],
+          films: [],
+          characters: [],
+        }
+      }
+    }
 
     return {
       props: {
+        error: false,
         planets,
         films,
         characters
       },
       revalidate: 30,
-      staticPageGenerationTimeout: 300
     }
 }
 
 type Props = {
+  error: boolean,
   planets: Planet[];
   films: Film[];
   characters: Character[];
 }
 
-const Home: NextPage<Props> = ({ planets, films, characters }) => {
+const Home: NextPage<Props> = ({ error, planets, films, characters }) => {
   const [showPlanetInformation, setShowPlanetInformation] = useState<boolean>(false);
   const [planet, setPlanet] = useState<Planet>();
   
@@ -59,6 +71,8 @@ const Home: NextPage<Props> = ({ planets, films, characters }) => {
   const [charactersToDisplay, setCharactersToDisplay] = useState(characters);
 
   return (
+  <>
+    { !error ? 
     <div className="bg-star-wars bg-cover bg-no-repeat h-screen w-full flex justify-around items-center flex-col">
 
       <Searchbox 
@@ -169,6 +183,8 @@ const Home: NextPage<Props> = ({ planets, films, characters }) => {
           }
       </div>
     </div>
+    : <div className="w-full h-screen flex justify-center items-center">404 Error</div>}
+  </>
   )
 }
 
