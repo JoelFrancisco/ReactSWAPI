@@ -1,7 +1,7 @@
 # ReactSWAPI
 
 ## Sobre
-Esse é um projeto que consome a API pública [swapi.dev](https://swapi.dev/) e apresenta parte dos resultados de forma mais agradável, com um barra de pesquisa para filtragem e uma interface para melhor apresentar as informações. 
+Esse é um projeto não comercial que consome a API pública [swapi.dev](https://swapi.dev/) e apresenta parte dos resultados de forma mais agradável, com um barra de pesquisa para filtragem e uma interface para melhor apresentar as informações. 
 
 ## Ferramentas utilizadas
 React com NextJs, tailwindCSS e typescript.
@@ -29,3 +29,7 @@ yarn dev
 ```
 
 Abra na [http://localhost:3000](http://localhost:3000) em um navegador.
+
+### Créditos
+A imagem utilizada foi retirada de:
+[https://www.wallpaperflare.com/star-wars-star-destroyer-wallpaper-death-star-at-at-space-wallpaper-mxva](https://www.wallpaperflare.com/star-wars-star-destroyer-wallpaper-death-star-at-at-space-wallpaper-mxva)
