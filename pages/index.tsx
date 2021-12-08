@@ -30,7 +30,8 @@ export const getStaticProps: GetStaticProps = async () => {
         films,
         characters
       },
-      revalidate: 30
+      revalidate: 30,
+      staticPageGenerationTimeout: 300
     }
 }
 
