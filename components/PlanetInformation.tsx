@@ -54,31 +54,31 @@ const PlanetInformation: FC<Props> = ({
   return (
     <>
       <div className="flex justify-around min-w-full flex-col">
-        <div className="md:flex md:w-full md:justify-around">
-          <div>
-            <h3 className="flex font-semibold md:text-lg">
+        <div className="md:flex md:w-full md:flex-col">
+          <div className="md:w-full md:flex">
+            <h3 className="flex font-semibold md:text-lg md:w-1/3 md:justify-center md:mr-6">
               Nome: <div className="ml-2 font-normal">{planet.name}</div> 
             </h3>
 
-            <h3 className="flex font-semibold md:text-lg">
+            <h3 className="flex font-semibold md:text-lg md:w-1/3 md:justify-center">
               Período de rotação: <div className="ml-2 font-normal">{planet.rotation_period}</div> 
             </h3>
 
-            <h3 className="flex font-semibold md:text-lg">
+            <h3 className="flex font-semibold md:text-lg md:w-1/3 md:justify-center">
               Período de órbita: <div className="ml-2 font-normal">{planet.orbital_period}</div> 
             </h3>
           </div>
           
-          <div>
-            <h3 className="flex font-semibold md:text-lg">
+          <div className="md:w-full md:flex">
+            <h3 className="flex font-semibold md:text-lg md:w-1/3 md:justify-center">
               Diâmetro: <div className="ml-2 font-normal">{planet.diameter}</div> 
             </h3>
 
-            <h3 className="flex font-semibold md:text-lg">
+            <h3 className="flex font-semibold md:text-lg md:w-1/3 md:justify-center">
               Clima: <div className="ml-2 font-normal">{planet.climate}</div> 
             </h3>
 
-            <h3 className="flex font-semibold md:text-lg">
+            <h3 className="flex font-semibold md:text-lg md:w-1/3 md:justify-center">
               População: <div className="ml-2 font-normal">{planet.population}</div> 
             </h3>
           </div>

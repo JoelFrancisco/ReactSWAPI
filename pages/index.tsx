@@ -58,7 +58,7 @@ const Home: NextPage<Props> = ({ planets, films, characters }) => {
   const [charactersToDisplay, setCharactersToDisplay] = useState(characters);
 
   return (
-    <div className="bg-star-wars bg-no-repeat h-screen w-full flex justify-around items-center flex-col">
+    <div className="bg-star-wars bg-cover bg-no-repeat h-screen w-full flex justify-around items-center flex-col">
 
       <Searchbox 
         planets={planets} 
@@ -85,7 +85,7 @@ const Home: NextPage<Props> = ({ planets, films, characters }) => {
 
       <div 
         className="container bg-gray-800 rounded-xl text-white p-10 flex justify-start items-center 
-          flex-col mt-20 mb-20 overflow-y-scroll h-3/4 opacity-90 border-black border-double"
+          flex-col mt-20 mb-20 overflow-y-scroll h-3/4 opacity-90 border-black border-double w-11/12"
       >
           { 
             whichResultsToShow === 'planets' ?
