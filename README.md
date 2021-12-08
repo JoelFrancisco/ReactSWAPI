@@ -33,4 +33,3 @@ Abra na [http://localhost:3000](http://localhost:3000) em um navegador.
 ### Créditos
 A imagem utilizada foi retirada de:
 [https://www.wallpaperflare.com/star-wars-star-destroyer-wallpaper-death-star-at-at-space-wallpaper-mxva](https://www.wallpaperflare.com/star-wars-star-destroyer-wallpaper-death-star-at-at-space-wallpaper-mxva)
-
