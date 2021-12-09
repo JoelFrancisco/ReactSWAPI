@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps = async () => {
         }
       }
     }
-    
+  
     return {
       props: {
         error: false,
